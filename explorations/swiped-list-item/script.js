@@ -1,8 +1,8 @@
-const handleStart = (event) => {
+function handleStart(event) {
     event.target.dataset.x = Number(event.touches[0].pageX) + Number(event.target.dataset.move || 0)
 };
 
-const handleEnd = (event) => {
+function handleEnd(event) {
     if (event.target.dataset.move > 100) {
         event.target.dataset.move = 100;
     } else if (event.target.dataset.move < -100) {
@@ -30,7 +30,7 @@ const handleEnd = (event) => {
     }, 1);
 };
 
-const handleTouchMove = (event) => {
+function handleTouchMove(event) {
     let moveX = Number(event.target.dataset.x) - event.touches[0].pageX;
     if (moveX > 130) {
         moveX = 130;

@@ -1,0 +1,9 @@
+body {
+    min-width: 380px;
+    display: flex;
+    justify-content: center;
+}
+
+.perfect-paragraph {
+    width: clamp(45ch, 100% - 20ch, 75ch);
+}

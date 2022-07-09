@@ -5,6 +5,6 @@
 .item {
     flex: 1 0 0;
     /* flex: grow shrink basis */
-    background: linear-gradient(150deg, #fff3ea, #eefff4);
+    background: linear-gradient(105deg, #fff3ea, #eefff4);
     padding: 1em;
 }

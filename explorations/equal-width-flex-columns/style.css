@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+}
+
+.item {
+    flex: 1 0 0;
+    /* flex: grow shrink basis */
+    border: 1px solid gray;
+    background-color: azure;
+    padding: 1em;
+}

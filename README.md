@@ -6,6 +6,7 @@ This repo is a dōjō for web development experiments.
 
 # TODOs
 - [ ] Implement the `overlapping-colored-circles` [idea](./explorations/overlapping-colored-circles/idea.md)
+- [ ] In `sticky-navi` make sticky footer disappear when footer appears
 - [ ] Make `pass-input` work and look good
 - [ ] Refine `swiped-list-item` so it doesn't change the page size when swiped
 - [ ] Refine `perfect-paragraph`
@@ -15,3 +16,4 @@ This repo is a dōjō for web development experiments.
 ###### 2022.07.10
 - 💡 added [overlapping-colored-circles idea](./explorations/overlapping-colored-circles/idea.md)
 - added circle-bordered-image
+- added sticky-navi

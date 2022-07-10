@@ -1,0 +1,3 @@
+# Overlapping colored circles
+
+The idea is to create white web page of `100vh` and `100vw` size across which three circles are continuously moving. Every circle has one of the CMY color and is half transparent, so they change colors when overlapping. On the page-start circles should have random starting position and move across the screen at an angle in the range `30deg`-`60deg`. They should bounce off the edge of the screen. They can also change their size within a certain range while moving.

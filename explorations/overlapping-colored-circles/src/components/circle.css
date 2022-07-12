@@ -1,6 +1,7 @@
 .circle {
-    width: min(10vw, 10vh);
-    height: min(10vw, 10vh);
-    background: rgba(255, 0, 0, 0.75);
+    opacity: .33;
+    border-radius: 50%;
+    /*TODO: put some blur on circles (note: they are bigger then!)*/
+    /* filter: blur(3px); */
     position: absolute;
 }

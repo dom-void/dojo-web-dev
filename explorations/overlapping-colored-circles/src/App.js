@@ -5,7 +5,15 @@ function App() {
   
   return (
     <div className="App">
-      <Circle />
+      <Circle color="#EC4E3D"/>
+      <Circle color="#2E7CF6"/>
+      <Circle color="#F8CD46"/>
+      <Circle color="red"/>
+      <Circle color="green"/>
+      <Circle color="blue"/>
+      <Circle color="gray"/>
+      <Circle color="black"/>
+      <Circle color="whitesmoke"/>
     </div>
   );
 }

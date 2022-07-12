@@ -1,46 +1,55 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import './circle.css'
 
-const Circle = () => {
+const Circle = ({ color }) => {
+    const size = 50;
+    const { innerWidth, innerHeight } = window;
+    const smallerViewportSide = innerWidth < innerHeight ? innerWidth : innerHeight;
+    const circleSize = Math.ceil((size / 100) * smallerViewportSide);
+    const randomPosition = (maxValue) => Math.floor(Math.random() * (maxValue - circleSize - 1));
+    const randomDirection = () => Boolean(Math.round(Math.random())) ? 1 : -1;
+
     const initStyle = {
-        width: 'min(10vw, 10vh)',
-        height: 'min(10vw, 10vh)',
-        top: 0,
-        left: 0,
+        width: `min(${size}vw, ${size}vh)`,
+        height: `min(${size}vw, ${size}vh)`,
+        background: color,
     };
 
-    const [position, setPosition] = useState({ x: 0, y: 0 });
-    const [direction, setDirection] = useState({ x: 1, y: 1 });
+    const [position, setPosition] = useState({ x: randomPosition(innerWidth), y: randomPosition(innerHeight) });
     const [style, setStyle] = useState(initStyle);
+    const direction = useMemo(() => ({ x: randomDirection(), y: randomDirection() }), []);
 
-    let innerWidth, innerHeight;
     const calculatePosition = useCallback((x, y) => {
-        if (y === innerWidth - 0.1 * innerWidth || y === -1) {
-            setDirection((direction) => ({ ...direction, y: -1 * direction.y }))
+        let internalX = x;
+        let internalY = y
+        if (y >= innerHeight - circleSize) {
+            direction.y = -1 * direction.y;
+            internalY = innerHeight - circleSize - 1;
         }
-        if (x === innerHeight - 0.1 * innerHeight || x === -1) {
-            setDirection((direction) => ({ ...direction, x: -1 * direction.x }))
+        if (y < 0) {
+            direction.y = -1 * direction.y;
+        }
+        if (x >= innerWidth - circleSize) {
+            direction.x = -1 * direction.x;
+            internalX = innerWidth - circleSize - 1;
+        }
+        if (x < 0) {
+            direction.x = -1 * direction.x;
         }
         return {
-            x: x + direction.x,
-            y: y + direction.y,
+            x: internalX + direction.x,
+            y: internalY + direction.y,
         };
-    }, [direction, innerHeight, innerWidth]);
+    }, [direction, innerHeight, innerWidth, circleSize]);
 
     useEffect(() => {
-        ({ innerWidth, innerHeight } = window);
-    }, []);
-
-    useEffect(() => {
-        console.log(innerWidth, innerHeight);
         let intervalId = setInterval(() => {
             const { x, y } = calculatePosition(position.x, position.y);
             setPosition((position) => ({ ...position, x, y }));
-            setStyle((style) => ({ ...style, top: `${position.y}px`, left: `${position.y}px` }));
-            console.log(style);
+            setStyle((style) => ({ ...style, top: `${position.y}px`, left: `${position.x}px` }));
         }, 30);
         return () => clearInterval(intervalId);
-    }, [calculatePosition, position, style, innerHeight, innerWidth]);
+    }, [calculatePosition, position, style]);
 
     return (
         <div className='circle' style={style}></div>

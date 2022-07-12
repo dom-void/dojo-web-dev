@@ -5,3 +5,7 @@
     /* filter: blur(3px); */
     position: absolute;
 }
+
+.circle:hover {
+    opacity: .66;
+}

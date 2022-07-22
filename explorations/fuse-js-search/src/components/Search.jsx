@@ -1,14 +1,22 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Fuse from "fuse.js";
+import { debounce } from "lodash";
 import DisplayItems from "./DisplayItems";
 
 const Search = ({input}) => {
     const [pattern, setPattern] = useState('');
+    const [debouncedPattern, setDebouncedPattern] = useState('');
+
+    const debounceSearch = useCallback(debounce((pattern) => setDebouncedPattern(pattern), 500), []);
 
     const handleChange = (e) => {
         e.preventDefault();
         setPattern(e.target.value);
     };
+
+    useEffect(() => {
+        debounceSearch(pattern);
+    }, [pattern, debounceSearch]);
 
     const options = {
         // isCaseSensitive: false,
@@ -31,7 +39,7 @@ const Search = ({input}) => {
     };
 
     const fuse = new Fuse(input, options);
-    const searchedContent = fuse.search(pattern);
+    const searchedContent = fuse.search(debouncedPattern);
 
     return (
         <div style={{ background: "#eee", marginTop: "1em" }}>

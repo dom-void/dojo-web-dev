@@ -35,11 +35,13 @@ const Search = ({input}) => {
 
     return (
         <div style={{ background: "#eee", marginTop: "1em" }}>
-            <input
-                type="text"
-                value={pattern}
-                onChange={(e) => handleChange(e)}
-            />
+            <label style={{ display: "flex", columnGap: ".5em", justifyContent: "center", }}>Searched phrase:
+                <input
+                    type="text"
+                    value={pattern}
+                    onChange={(e) => handleChange(e)}
+                />
+            </label>
             <DisplayItems input={searchedContent} />
         </div>
     );

@@ -6,7 +6,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <h1>Fuse.js search</h1>
+      <h1>Fuse.js react search with lodash/debounce</h1>
       <DisplayItems input={INPUT} />
       <Search input={INPUT} />
     </div>

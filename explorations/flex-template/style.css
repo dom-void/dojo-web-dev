@@ -48,6 +48,7 @@ li {
 .navi a {
     color: whitesmoke;
     text-decoration: none;
+    transition-duration: .5s;
 }
 .navi a:hover {
     color: lightskyblue;

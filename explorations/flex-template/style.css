@@ -5,6 +5,7 @@
 }
 
 body {
+    min-width: 375px;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     flex-direction: column;
@@ -19,6 +20,7 @@ body {
 
 .back-container {
     width: 100vw;
+    min-width: 375px;
     display: flex;
     justify-content: center;
 }
@@ -28,10 +30,11 @@ body {
 }
 
 header {
+    min-height: 7em;
     display: flex;
     padding-top: 2em;
     padding-bottom: 0.75em;
-    align-items: baseline;
+    align-items: flex-end;
     justify-content: space-between;
     flex-wrap: wrap;
     column-gap: 2em;
@@ -44,6 +47,10 @@ ul {
 
 li {
     list-style: none;
+}
+
+.navbar {
+    background-color: lightslategray;
 }
 
 .navi {
@@ -71,10 +78,6 @@ li {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-}
-
-nav {
-    background-color: lightslategray;
 }
 
 @media (max-width: 550px) {

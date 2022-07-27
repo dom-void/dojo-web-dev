@@ -15,11 +15,19 @@ body {
     width: 90vw;
     max-width: 850px;
     min-width: 375px;
-    padding-inline: 1em;
+}
+
+.back-container {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.header {
+    background-color: lightskyblue;
 }
 
 header {
-    background-color: lightskyblue;
     display: flex;
     padding-top: 2em;
     padding-bottom: 0.75em;
@@ -72,5 +80,9 @@ nav {
 @media (max-width: 550px) {
     .navi {
         font-size: .85em;
+    }
+
+    header {
+        padding-inline: 1em;
     }
 }

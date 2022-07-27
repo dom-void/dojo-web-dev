@@ -1,3 +1,7 @@
+:root {
+    --color-washed-black: #333;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -10,6 +14,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: var(--color-washed-black);
 }
 
 .container {
@@ -38,6 +43,7 @@ header {
     justify-content: space-between;
     flex-wrap: wrap;
     column-gap: 2em;
+    color: var(--color-washed-black);
 }
 
 ul {
@@ -50,7 +56,7 @@ li {
 }
 
 .navbar {
-    background-color: lightslategray;
+    background-color: var(--color-washed-black);
 }
 
 .navi {

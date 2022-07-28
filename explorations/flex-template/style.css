@@ -86,6 +86,18 @@ li {
     justify-content: flex-end;
 }
 
+.footer {
+    background-color: var(--color-washed-black);
+}
+
+footer {
+    height: 50px;
+    color: white;
+    font-size: .8em;
+    display: flex;
+    align-items: center;
+}
+
 @media (max-width: 550px) {
     .navi {
         font-size: .85em;
